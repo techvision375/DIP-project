@@ -12,8 +12,7 @@ st.title("📄 Insurance Document Intelligence")
 st.caption("Upload an insurance policy / claim document → preprocess with DIP → OCR → extract key fields.")
 
 # Tesseract can be configured using an environment variable on systems where it is not in PATH.
-if os.getenv("TESSERACT_CMD"):
-    pytesseract.pytesseract.tesseract_cmd = os.getenv("TESSERACT_CMD")
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
 def pdf_to_images(data, dpi=220):
     doc = fitz.open(stream=data, filetype="pdf")
